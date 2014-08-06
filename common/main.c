@@ -479,7 +479,7 @@ void main_loop (void)
 	}
 #endif
 
-	FriendlyARMMenu();
+	//FriendlyARMMenu();
 	/*
 	 * Main Loop for Monitor Command Processing
 	 */
@@ -1520,7 +1520,7 @@ void FriendlyARMMenu(void)
 			if (NandIsMlc()) {
 				printf("Yaffs is not support yet for MLC2 NAND\n");
 			} else {
-				FriendlyARMGetDataFromUsbAndWriteNand(126 M, 5 M + 4 * 128 K, (unsigned)-1, "yaffs2-image");
+				FriendlyARMGetDataFromUsbAndWriteNand(126 M, 5 M + 4 * 128 K, /*(unsigned)-1*/230 M - 128 K, "yaffs2-image");
 				SetLinuxCommandLine("root=/dev/mtdblock2 console=ttySAC0,115200");
 			}
 			break;

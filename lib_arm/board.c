@@ -149,7 +149,7 @@ static int init_baudrate (void)
 
 static int display_banner (void)
 {
-	printf ("\n\n%s\n\n", version_string);
+	printf ("\n%s\n", version_string);
 	debug ("U-Boot code: %08lX -> %08lX  BSS: -> %08lX\n",
 	       _armboot_start, _bss_start, _bss_end);
 #ifdef CONFIG_MEMORY_UPPER_CODE /* by scsuh */

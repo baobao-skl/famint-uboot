@@ -4,6 +4,6 @@ make distclean
 rm -f u-boot-nand.bin
 rm -f u-boot-sd.bin
 rm -f u-boot.dis
-rm -f `find -name *.o` `find -name *.a`
+rm -f `find -name *.o` `find -name *.a` common/*.o
 rm -f examples/hello_world include/bmp_logo.h tools/bmp_logo tools/envcrc tools/gen_eth_addr tools/img2srec tools/mkimage
 

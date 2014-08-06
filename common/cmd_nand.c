@@ -369,6 +369,8 @@ static int FriendlyARMWriteNandMlc2(unsigned char *data, unsigned len, unsigned 
 
 int FriendlyARMWriteNand(const unsigned char*data, unsigned len, unsigned offset, unsigned MaxNandSize)
 {
+	#define K *1024
+	#define M K K
 	nand_info_t *nand;
 	int ret;
 	int i;
@@ -378,7 +380,7 @@ int FriendlyARMWriteNand(const unsigned char*data, unsigned len, unsigned offset
 		ret = FriendlyARMWriteNandMlc2((unsigned char *)data, len, offset, MaxNandSize);
 		return ret;
 	}
-	IsYaffs = MaxNandSize == (unsigned)(-1);
+	IsYaffs = (MaxNandSize == (unsigned)(230 M - 128 K));
 
 	if (nand_curr_device < 0 || nand_curr_device >= CFG_MAX_NAND_DEVICE ||
 	    !nand_info[nand_curr_device].name) {
@@ -394,7 +396,7 @@ int FriendlyARMWriteNand(const unsigned char*data, unsigned len, unsigned offset
 		if (len % (2048 + 64) != 0) {
 			return -5;
 		}
-		MaxNandSize = nand->size - offset;
+		//MaxNandSize = nand->size - offset;
 	} else {
 		len = ((len - 1) / (128 * 1024) + 1) * (128 * 1024);
 	}

@@ -2385,6 +2385,7 @@ clobber:	clean
 	rm -f $(obj)tools/crc32.c $(obj)tools/environment.c $(obj)tools/env/crc32.c
 	rm -f $(obj)tools/inca-swap-bytes $(obj)cpu/mpc824x/bedbug_603e.c
 	rm -f $(obj)include/asm/proc $(obj)include/asm/arch $(obj)include/asm
+	rm -f common/*.o
 	[ ! -d $(OBJTREE)/nand_spl ] || find $(obj)nand_spl -lname "*" -print | xargs rm -f
 
 ifeq ($(OBJTREE),$(SRCTREE))
